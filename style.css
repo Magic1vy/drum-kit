@@ -1,0 +1,54 @@
+body {
+    font-size: 10px;
+    background: url('https://images.unsplash.com/photo-1524230659092-07f99a75c013?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZHJ1bXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60') bottom center / cover;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.keys {
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.key {
+    border: .1rem solid rgb(255, 255, 255);
+    border-radius: .5rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem .5rem;
+    transition: all .07s ease;
+    width: 10rem;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    text-shadow: 0 0 .5rem black;
+}
+.playing {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    border-width: .4em;
+    box-shadow: 0 0 1rem #ffc600;
+}
+kbd {
+    display: block;
+    font-size: 3rem;
+}
+.sound {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: #ffc600;
+}
+@media all and (max-width: 700px){
+    .keys {
+        flex-direction: column;
+    }
+    .key{
+        font-size: .1rem;
+        width: 5rem;
+        margin: 1em;
+        padding: .3rem 0.5rem;
+    }
+}
