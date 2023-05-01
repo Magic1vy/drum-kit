@@ -1,3 +1,28 @@
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        Swal.fire({
+            title: 'Use your keyboard to play drums!',
+            html: '<iframe width="420" height="236" src="https://www.youtube.com/embed/Z89PjkvSfu4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            timer: 6000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer')
+            }
+        });
+    }, 1500);
+});
+
 const keys = document.querySelectorAll(".key");
 
 function playSound(e){
@@ -14,8 +39,9 @@ function removeTransition(e){
     this.classList.remove("playing");
 }
 
-keys.forEach(key => 
-    key.addEventListener('transitionend', removeTransition));
+keys.forEach(key => {
+    key.addEventListener('transitionend', removeTransition);
+});
 
 window.addEventListener("keydown", playSound);
 
